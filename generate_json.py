@@ -3,9 +3,9 @@ import json
 import urllib.parse
 
 # आपकी जानकारी
-GITHUB_USERNAME = "pavank11213-hub" 
+GITHUB_USERNAME = "pavank11213-hub"
 REPO_NAME = "ChatTTS"
-BRANCH = "main" 
+BRANCH = "main"
 
 BASE_URL = f"https://raw.githubusercontent.com/{GITHUB_USERNAME}/{REPO_NAME}/{BRANCH}/"
 
@@ -25,15 +25,15 @@ if os.path.exists(novels_dir):
                     # पाथ सेट करना
                     txt_path = f"{novels_dir}/{novel}/{file}"
                     mp3_path = f"{novels_dir}/{novel}/audio/{episode_name}.mp3"
-                    
+
                     # URL को सुरक्षित बनाना (spaces और स्पेशल कैरेक्टर्स के लिए)
                     safe_txt_url = urllib.parse.quote(txt_path)
                     safe_mp3_url = urllib.parse.quote(mp3_path)
-                    
+
                     episode_data = {
                         "title": episode_name,
                         "text_url": f"{BASE_URL}{safe_txt_url}",
-                        "audio_url": f"{BASE_URL}{safe_mp3_url}"
+                        "audio_url": f"{BASE_URL}{safe_mp3_url}",
                     }
                     data[novel].append(episode_data)
 
